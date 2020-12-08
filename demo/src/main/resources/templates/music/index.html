@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Page 1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+</style>
+
+<body>
+	<div class="container my-2">
+		<div class="card">
+			<div class="card-body">
+
+				<p class="my-5" align="center">
+					<b>Musics</b>
+				</p>
+
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Singer</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="music : ${musics}">
+							<td th:text="${music.name}"></td>
+							<td th:text="${music.singer}"></td>
+							<td><a th:href="@{/musics/editMusic/{id}(id=${music.id})}" >Edit</a> 
+								<a th:href="@{/musics/deleteMusic/{id}(id=${music.id})}" >Delete</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="3"><a href="#"
+								th:href="@{/musics/addMusic}" target="_blank"> Add New Music </a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+
+
+</body>
+
+</html>

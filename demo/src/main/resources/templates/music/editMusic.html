@@ -1,0 +1,62 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Edit Music</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+<style>
+table {
+	font-family: arial, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+	text-align: left;
+	padding: 8px;
+}
+</style>
+<body>
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+			<h1> Edit Music </h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-6">
+			<a  href="#" th:href="@{/musics}"> Back to All Musics </a>
+			<form action="#" class="form-horizontal"
+				  th:action="@{/musics/saveMusic}"
+				  th:object="${music}"
+				  method="post" >
+				<fieldset>
+
+					<table class="table">
+						<thead>
+						<tr>
+							<th> Name</th>
+							<th> Singer</th>
+						</tr>
+						</thead>
+						<tbody>	
+						<tr>
+							<td><input type="text" th:field="*{name}" id="name" placeholder="Name" required="required"/></td>
+							<td><input type="text" th:field="*{singer}" id="singer" placeholder="Singer" required="required"/></td>
+						</tr>
+						</tbody>
+					</table>
+					<span class="pull-right">
+						    <input type="submit" id="submitButton" th:value="Update">
+					</span>
+				</fieldset>
+				<input type="hidden" id="id" th:field="*{id}">
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
